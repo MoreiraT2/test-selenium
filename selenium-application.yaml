@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: selenium
+  namespace: argocd
+spec:
+  destination:
+    namespace: selenium
+    server: "https://kubernetes.default.svc"
+  project: selenium-project
+  source:
+    chart: selenium-grid
+    repoURL: "https://www.selenium.dev/docker-selenium"
+    targetRevision: '0.37.0'
+    helm:
+      valueFiles:
+        - values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
