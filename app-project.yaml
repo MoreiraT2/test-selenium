@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/MoreiraT2/test-selenium
         revision: main
         directories:
-          - path: dev
+          - path: 'dev'
   template:
     metadata:
       name: selenium
