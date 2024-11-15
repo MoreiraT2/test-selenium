@@ -6,25 +6,22 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/Flutter-Global/gsgkd-configrepo-aws-ppb.git
-        revision: dev
+        repoURL: https://github.com/MoreiraT2/test-selenium
+        revision: main
         directories:
-          - path: environments/dev
+          - path: dev
   template:
     metadata:
       name: selenium
     spec:
       project: default
       source:
-        repoURL: "https://www.selenium.dev/docker-selenium"
-        chart: selenium
-        targetRevision: '0.37.0'
-        helm:
-          valueFiles:
-            - '{{path}}/values.yml'
+        repoURL: https://www.selenium.dev/docker-selenium
+        chart: selenium-grid
+        targetRevision: "0.37.0"
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium-{{path.basename}}
+        namespace: selenium
       syncPolicy:
         automated:
           prune: true
