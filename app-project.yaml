@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/MoreiraT2/test-selenium.git
         revision: main
         files:
-          - path: dev/*
+          - path: ./dev
   template:
     metadata:
       name: selenium
@@ -39,7 +39,7 @@ spec:
                   enabled: true
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium-teste23
+        namespace: selenium
       syncPolicy:
         automated:
           prune: true

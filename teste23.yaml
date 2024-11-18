@@ -7,9 +7,9 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/MoreiraT2/test-selenium.git
-        revision: HEAD
+        revision: main
         files:
-          - path: 'dev/values.yaml'
+          - path: ./dev/values.yaml
   template:
     metadata:
       name: selenium
@@ -19,9 +19,13 @@ spec:
         repoURL: https://www.selenium.dev/docker-selenium
         chart: selenium-grid
         targetRevision: "0.37.1"
+        helm:
+          valueFiles:
+            - 'dev/values.yaml'
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium-teste564
+        namespace: selenium-teste5646
+      
       syncPolicy:
         automated:
           prune: true
