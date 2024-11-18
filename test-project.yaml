@@ -5,12 +5,11 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - list:
-        elements:
-          - name: selenium
-            targetRevision: 'main'
-            namespace: selenium-tomates
-            valuesFile: https://raw.githubusercontent.com/MoreiraT2/test-selenium/refs/heads/main/dev/values.yaml
+    - git:
+        repoURL: https://github.com/MoreiraT2/test-selenium.git
+        revision: HEAD
+        directories:
+          - path: dev/*
 
   template:
     metadata:
