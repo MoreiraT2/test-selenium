@@ -1,4 +1,14 @@
 chromeNode:
-      enabled: false
+      imageName: "node-chrome"
+      imageTag: "4.24.0-20240830"
+      extraEnvironmentVariables:
+        - name: "SE_NODE_MAX_SESSIONS"
+          value: "1"
+        - name: "SE_NODE_MAX_INSTANCES"
+          value: "1"
+        - name: "SE_NODE_OVERRIDE_MAX_SESSIONS"
+          value: "true"
+        - name: "SE_NODE_SESSION_TIMEOUT"
+          value: "120"
 ingress:
       enabled: true
