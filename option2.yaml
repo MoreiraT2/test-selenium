@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: selenium-grid-applicationset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: selenium
+            targetRevision: 'main'
+            namespace: selenium-grid
+            valuesFile: https://raw.githubusercontent.com/MoreiraT2/test-selenium/refs/heads/main/dev/values.yaml
+
+  template:
+    metadata:
+      name: selenium
+    spec:
+      project: default
+      source:
+        repoURL: 'https://www.selenium.dev/docker-selenium'
+        chart: selenium-grid
+        targetRevision: '0.37.1'
+        helm:
+          valueFiles:
+            - '{{valuesFile}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
