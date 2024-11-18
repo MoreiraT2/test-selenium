@@ -18,13 +18,13 @@ spec:
       source:
         repoURL: https://www.selenium.dev/docker-selenium
         chart: selenium-grid
-        targetRevision: "0.37.0"
+        targetRevision: "0.37.1"
         helm:
           valueFiles:
             - '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium-teste23
+        namespace: selenium-teste564
       syncPolicy:
         automated:
           prune: true
