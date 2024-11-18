@@ -1,6 +1,6 @@
 chromeNode:
       imageName: "node-chrome"
-      imageTag: "latest"
+      imageTag: "4.24.0-20240830"
       extraEnvironmentVariables:
         - name: "SE_NODE_MAX_SESSIONS"
           value: "1"
@@ -10,7 +10,5 @@ chromeNode:
           value: "true"
         - name: "SE_NODE_SESSION_TIMEOUT"
           value: "120"
-hub:
-      serviceType: "NodePort"
 ingress:
       enabled: true
