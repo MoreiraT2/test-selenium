@@ -8,8 +8,8 @@ spec:
     - git:
         repoURL: https://github.com/MoreiraT2/test-selenium.git
         revision: main
-        directories:
-          - path: dev/*
+        files:
+          - path: 'dev/values.yaml'
   template:
     metadata:
       name: selenium
@@ -24,7 +24,7 @@ spec:
             - '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium-teste233
+        namespace: selenium-teste23
       syncPolicy:
         automated:
           prune: true
