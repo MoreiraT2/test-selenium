@@ -1,6 +1,5 @@
 chromeNode:
-      image:
-        pullPolicy: Always
+      imagepullPolicy: Always
       imageName: "node-chrome"
       imageTag: "4.24.0-20240830"
       extraEnvironmentVariables:
