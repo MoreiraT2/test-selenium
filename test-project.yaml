@@ -19,7 +19,7 @@ spec:
       project: default
       source:
         repoURL: 'https://www.selenium.dev/docker-selenium'
-        chart: selenium-grid
+        chart: selenium-tomates
         targetRevision: '0.37.1'
         helm:
           valueFiles:
