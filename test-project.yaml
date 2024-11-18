@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/MoreiraT2/test-selenium
+        repoURL: https://github.com/MoreiraT2/test-selenium.git
         revision: HEAD
         directories:
           - path: dev/*
@@ -22,7 +22,7 @@ spec:
         targetRevision: '0.37.1'
         helm:
           valueFiles:
-            - '{{path}}/values.yaml'
+            - 'dev/values.yaml'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: selenium-porra
