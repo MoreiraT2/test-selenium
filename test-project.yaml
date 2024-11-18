@@ -22,10 +22,10 @@ spec:
         targetRevision: '0.37.1'
         helm:
           valueFiles:
-            - '{{valuesFile}}'
+            - dev/values.yaml
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: '{{namespace}}'
+        namespace: selenium-porra
       syncPolicy:
         automated:
           prune: true
