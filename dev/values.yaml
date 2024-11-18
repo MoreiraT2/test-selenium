@@ -1,5 +1,5 @@
 chromeNode:
-      enabled: false
+      enabled: true
 edgeNode:
       enabled: false
 ingress:
