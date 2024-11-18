@@ -7,7 +7,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/MoreiraT2/test-selenium.git
-        revision: HEAD
+        revision: main
         directories:
           - path: dev/*
 
