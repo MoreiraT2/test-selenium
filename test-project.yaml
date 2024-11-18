@@ -22,7 +22,7 @@ spec:
         targetRevision: '0.37.1'
         helm:
           valueFiles:
-            - dev/values.yaml
+            - '{{path}}/values.yaml'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: selenium-porra
