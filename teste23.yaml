@@ -20,23 +20,8 @@ spec:
         chart: selenium-grid
         targetRevision: "0.37.0"
         helm:
-          values: |
-            chromeNode:
-              imageName: "node-chrome"
-              imageTag: "latest"
-              extraEnvironmentVariables:
-                - name: "SE_NODE_MAX_SESSIONS"
-                  value: "1"
-                - name: "SE_NODE_MAX_INSTANCES"
-                  value: "1"
-                - name: "SE_NODE_OVERRIDE_MAX_SESSIONS"
-                  value: "true"
-                - name: "SE_NODE_SESSION_TIMEOUT"
-                  value: "120"
-            hub:
-                  serviceType: "NodePort"
-            ingress:
-                  enabled: true
+          valueFiles:
+            - '{{path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: selenium-teste23
