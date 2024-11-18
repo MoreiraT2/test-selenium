@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/MoreiraT2/test-selenium.git
+        repoURL: https://github.com/MoreiraT2/test-selenium
         revision: HEAD
         directories:
           - path: dev/*
