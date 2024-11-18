@@ -8,6 +8,7 @@ spec:
     - list:
         elements:
           - name: selenium
+            targetRevision: 'main'
             namespace: selenium-grid-dev
             valuesFile: https://raw.githubusercontent.com/MoreiraT2/test-selenium/refs/heads/main/dev/values.yaml
 

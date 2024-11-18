@@ -1,6 +1,6 @@
 chromeNode:
       imageName: "node-chrome"
-      imageTag: "batatas"
+      imageTag: "batat2as"
       extraEnvironmentVariables:
         - name: "SE_NODE_MAX_SESSIONS"
           value: "1"
