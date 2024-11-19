@@ -12,7 +12,7 @@ spec:
           - path: ./dev
   template:
     metadata:
-      name: selenium
+      name: selenium-with-helm-values
     spec:
       project: default
       source:
@@ -22,6 +22,7 @@ spec:
         helm:
           values: |
             chromeNode:
+              enabled: false
               extraEnvironmentVariables:
                 - name: "SE_NODE_MAX_SESSIONS"
                   value: "2"
@@ -31,6 +32,8 @@ spec:
                   value: "true"
                 - name: "SE_NODE_SESSION_TIMEOUT"
                   value: "120"
+            edgeNode:
+              enabled: false
             hub:
                   serviceType: "NodePort"
             ingress:
