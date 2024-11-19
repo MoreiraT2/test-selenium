@@ -18,15 +18,13 @@ spec:
       source:
         repoURL: https://www.selenium.dev/docker-selenium
         chart: selenium-grid
-        targetRevision: "0.37.0"
+        targetRevision: "0.37.1"
         helm:
           values: |
             chromeNode:
-              imageName: "node-chrome"
-              imageTag: "latest"
               extraEnvironmentVariables:
                 - name: "SE_NODE_MAX_SESSIONS"
-                  value: "1"
+                  value: "2"
                 - name: "SE_NODE_MAX_INSTANCES"
                   value: "1"
                 - name: "SE_NODE_OVERRIDE_MAX_SESSIONS"
@@ -39,7 +37,7 @@ spec:
                   enabled: true
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium
+        namespace: selenium-helm-parameters
       syncPolicy:
         automated:
           prune: true
