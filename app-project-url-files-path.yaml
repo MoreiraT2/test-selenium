@@ -8,8 +8,8 @@ spec:
     - git:
         repoURL: https://github.com/MoreiraT2/test-selenium.git
         revision: main
-        directories:
-          - path: dev/*
+        files:
+          - path: 'dev/values.yaml'
 
   template:
     metadata:
@@ -25,7 +25,7 @@ spec:
             - 'dev/values.yaml'
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: selenium-porra
+        namespace: selenium-url-files-path
       syncPolicy:
         automated:
           prune: true
