@@ -9,22 +9,22 @@ spec:
         repoURL: https://github.com/MoreiraT2/test-selenium.git
         revision: main
         directories:
-          - path: ./dev/values.yaml
+          - path: app
   template:
     metadata:
-      name: selenium-url-directories-path
+      name: selenium-grid
     spec:
       project: default
       source:
-        repoURL: https://www.selenium.dev/docker-selenium
-        chart: selenium-grid
-        targetRevision: "0.37.1"
+        repoURL: https://github.com/MoreiraT2/test-selenium
+        path: '{{ path }}'
+        targetRevision: main
         helm:
           valueFiles:
-            - 'dev/values.yaml'
+            - values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium-url-directories-path
+        namespace: selenium
       syncPolicy:
         automated:
           prune: true
