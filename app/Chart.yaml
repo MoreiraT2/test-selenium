@@ -1,0 +1,11 @@
+apiVersion: v2
+name: selenium-grid
+type: application
+version: 0.37.0
+appVersion: 4.24.0-20240907
+
+
+dependencies:
+- name: selenium-grid
+  version: 0.37.1
+  repository: https://www.selenium.dev/docker-selenium
