@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: selenium-appset-directories-path
+  name: selenium-appset-directories-path-23
   namespace: argocd
 spec:
   generators:
@@ -12,22 +12,23 @@ spec:
           - path: app
   template:
     metadata:
-      name: selenium-grid
+      name: selenium23
     spec:
       project: default
       source:
-        repoURL: https://github.com/MoreiraT2/test-selenium
-        path: '{{ path }}'
+        repoURL: https://github.com/MoreiraT2/test-selenium.git
         targetRevision: main
+        path: main
         helm:
           valueFiles:
             - values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium
+        namespace: selenium-teste23
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+          - Replace=true

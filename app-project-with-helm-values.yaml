@@ -1,49 +1,35 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: selenium-appset-helm-values
+  name: selenium-appset-directories-path-23
   namespace: argocd
 spec:
   generators:
     - git:
         repoURL: https://github.com/MoreiraT2/test-selenium.git
         revision: main
-        files:
-          - path: ./dev
+        directories:
+          - path: app
   template:
     metadata:
-      name: selenium-with-helm-values
+      name: selenium23
     spec:
       project: default
       source:
-        repoURL: https://www.selenium.dev/docker-selenium
-        chart: selenium-grid
-        targetRevision: "0.37.1"
+        repoURL: https://github.com/MoreiraT2/test-selenium.git
+        targetRevision: main
+        path: main
         helm:
-          values: |
-            chromeNode:
-              enabled: false
-              extraEnvironmentVariables:
-                - name: "SE_NODE_MAX_SESSIONS"
-                  value: "2"
-                - name: "SE_NODE_MAX_INSTANCES"
-                  value: "1"
-                - name: "SE_NODE_OVERRIDE_MAX_SESSIONS"
-                  value: "true"
-                - name: "SE_NODE_SESSION_TIMEOUT"
-                  value: "120"
-            edgeNode:
-              enabled: false
-            hub:
-                  serviceType: "NodePort"
-            ingress:
-                  enabled: true
+          valueFiles:
+            - values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: selenium-helm-parameters
+        namespace: selenium-teste23
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+          - Replace=true
+
